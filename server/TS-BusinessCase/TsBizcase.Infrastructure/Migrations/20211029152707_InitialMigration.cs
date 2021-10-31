@@ -49,17 +49,17 @@ namespace TsBizcase.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "AppUsers",
                 columns: new[] { "Id", "Email", "HashedPassword", "Name" },
-                values: new object[] { 1, "anita.herrera@houseoffoo.com", "AQAAAAEAACcQAAAAEG8W4Xu0BxhbTMb7qOpixB47PGMKTqS66OzGQrihsvXFLXTYS4I0KDJPR/TIEIvx1w==", "Anita Herrera" });
+                values: new object[] { 1, "anita.herrera@houseoffoo.com", "QrPS92W3wN0nGQIB3GlLLNBDGxQdcHRS2fFtUDNMCuY=", "Anita Herrera" });
 
             migrationBuilder.InsertData(
                 table: "AppUsers",
                 columns: new[] { "Id", "Email", "HashedPassword", "Name" },
-                values: new object[] { 2, "brooklyn.hamilton@hamiltonbrook.com", "AQAAAAEAACcQAAAAELWpKaj6KMCYfN23Y0yY+g5fDxu07aeAf67fqu2frjkDF/rs4GNTl3JT5sD7ouDRzA==", "Brooklyn Hamilton" });
+                values: new object[] { 2, "brooklyn.hamilton@hamiltonbrook.com", "5Cetov3AIT6DZ8AFJ7krBAqBJ2rISqkVcIv2Fq8oD24=", "Brooklyn Hamilton" });
 
             migrationBuilder.InsertData(
                 table: "AppUsers",
                 columns: new[] { "Id", "Email", "HashedPassword", "Name" },
-                values: new object[] { 3, "liam.davidson@lidavman.com", "AQAAAAEAACcQAAAAEKvsxNN3F2vWp0NrsjGyqEyJREvoydZA+U4mR5WwtNJAn9mD5HgngFov0AsMzFc1/g==", "Liam Davidson" });
+                values: new object[] { 3, "liam.davidson@lidavman.com", "Ao27fcJ4mbiFkL8ooDWkYeYx53Iyx4Ef3juXcneN9CQ=", "Liam Davidson" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AppUser_Email",

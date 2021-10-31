@@ -61,9 +61,11 @@ namespace TsBizcase.Infrastructure.Repositories
 
         public void RemoveTenderAsync(int id)
         {
-            _context.Tenders
-                    .FromSqlInterpolated($"EXEC sp_DeleteTender @ID={id};");
-
+                _ = _context.Tenders
+                    .FromSqlInterpolated($"EXEC sp_DeleteTender @ID={id};")
+                    .AsEnumerable()
+                    .FirstOrDefault();
+            
         }
     }
 }

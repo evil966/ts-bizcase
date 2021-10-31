@@ -25,7 +25,7 @@ namespace TsBizcase.Infrastructure.Migrations
             migrationBuilder.Sql(@"CREATE PROC sp_DeleteTender(@ID INT)      
                                         AS BEGIN
                                             DELETE FROM Tenders WHERE Id=@ID;
-                                            SELECT @@ROWCOUNT AS RECORDSAFFECTED;
+                                            SELECT TOP 1 * FROM Tenders;
                                         END");
         }
 
