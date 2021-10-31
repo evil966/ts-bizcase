@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Startup.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TsBizcase.Core\TsBizcase.Core.csproj" />
+    <ProjectReference Include="..\TsBizcase.Infrastructure\TsBizcase.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
