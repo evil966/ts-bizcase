@@ -1,4 +1,5 @@
 using MediatR;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using TsBizcase.Api.App_Start;
+using TsBizcase.Api.Filters.Helpers;
 using TsBizcase.Application;
 using TsBizcase.Infrastructure.Data;
 
@@ -50,6 +52,11 @@ namespace TsBizcase.Api
 
             services.AddMediatR(typeof(MediatREntryPoint).Assembly);
             services.AddScopedAndTransientServices();
+            services.AddScoped<IUserService, UserService>();
+
+            services.AddAuthentication("BasicAuthentication")
+                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,6 +69,7 @@ namespace TsBizcase.Api
 
             app.UseHttpsRedirection();
             app.UseRouting();
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

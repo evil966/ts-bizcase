@@ -1,6 +1,8 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using TsBizcase.Api.Filters;
@@ -60,6 +62,7 @@ namespace TsBizcase.Api.Controllers
             return await _mediator.Send(_query.UpdateTenderCommand(input));
         }
 
+        [Authorize]
         [HttpDelete("{id}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -68,5 +71,37 @@ namespace TsBizcase.Api.Controllers
         {
             return await _mediator.Send(_query.DeleteTenderCommand(id));
         }
+
+        #region Sample data password generator - Do not use :)
+        [HttpGet("password")]
+        public IActionResult ListPassword()
+        {
+            var hashedUsers = new List<HashedAppUser>();
+            var users = new List<ModelHasher>
+            {
+                new ModelHasher {Name = "anita.herrera@houseoffoo.com", Email = "anita.herrera@houseoffoo.com"},
+                new ModelHasher {Name = "brooklyn.hamilton@hamiltonbrook.com", Email = "brooklyn.hamilton@hamiltonbrook.com"},
+                new ModelHasher {Name = "liam.davidson@lidavman.com", Email = "liam.davidson@lidavman.com"}
+            };
+
+            int ctr = 1;
+            foreach (var user in users)
+            {
+                var hashedPassword = Hasher.Execute(user, $"@Passw0rd0{ctr++}");
+                hashedUsers.Add(new HashedAppUser { Name = user.Name, Email = user.Email, HashedPassword = hashedPassword });
+            }
+
+            return  Ok(hashedUsers);
+
+        }
+
+        class HashedAppUser
+        {
+            public string Name { get; set; }
+            public string Email { get; set; }
+            public string HashedPassword { get; set; }
+        }
+        #endregion
+
     }
 }
