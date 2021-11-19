@@ -8,7 +8,7 @@ using TsBizcase.Infrastructure.Repositories.Base;
 
 namespace TsBizcase.Api.App_Start
 {
-    public static class ScoredAndTransientServicesExtensions
+    public static class ScopedAndTransientServicesExtensions
     {
         public static void AddScopedAndTransientServices(this IServiceCollection services)
         {

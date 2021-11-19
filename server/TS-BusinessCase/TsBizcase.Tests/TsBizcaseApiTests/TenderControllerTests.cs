@@ -1,5 +1,4 @@
 ﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -7,7 +6,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using TsBizcase.Api.Controllers;
-using TsBizcase.Application.Commands;
 using TsBizcase.Application.Factories;
 using TsBizcase.Application.Model;
 using TsBizcase.Application.Queries;
