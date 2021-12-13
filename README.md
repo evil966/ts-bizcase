@@ -1,3 +1,4 @@
+[![.NET](https://github.com/evil966/ts-bizcase/actions/workflows/ts-bizcase-server.yml/badge.svg)](https://github.com/evil966/ts-bizcase/actions/workflows/ts-bizcase-server.yml)
 # Introduction 
 Develop a web application to manage the Tender details within the organization. The application should have the ability to
 • Create a tender
