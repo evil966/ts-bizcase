@@ -20,6 +20,6 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore ./server/TS-BusinessCase/TS-BusinessCase.sln
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build ./server/TS-BusinessCase --no-restore
     - name: Test
       run: dotnet test ./server/TS-BusinessCase/TS-BusinessCase.sln --no-build --verbosity normal
