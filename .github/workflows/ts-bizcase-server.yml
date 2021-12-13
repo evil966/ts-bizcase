@@ -1,4 +1,4 @@
-name: .NET
+name: Ts-Bizcase Ci-CD
 
 on:
   push:
